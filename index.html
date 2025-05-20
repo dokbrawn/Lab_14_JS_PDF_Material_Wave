@@ -1,13 +1,58 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="./js/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Интерактивное резюме</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <main class="resume-container">
+    <header class="header">
+      <div class="avatar" data-ripple></div>
+      <h1 class="name" contenteditable="true">Иван Иванов</h1>
+      <p class="position" contenteditable="true">Frontend разработчик</p>
+      <div class="contacts">
+        <div class="contact-item" data-ripple>
+          <i class="fas fa-phone"></i>
+          <span contenteditable="true">+7 (999) 123-45-67</span>
+        </div>
+        <div class="contact-item" data-ripple>
+          <i class="fas fa-envelope"></i>
+          <span contenteditable="true">example@mail.com</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title"><i class="fas fa-briefcase"></i> Опыт работы</h2>
+      <div class="timeline">
+        <div class="timeline-item" contenteditable="true">
+          <h3>Ведущий разработчик</h3>
+          <p class="timeline-date">2020 - настоящее время</p>
+          <p class="timeline-description">Разработка SPA приложений на Vue.js</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Образование</h2>
+      <div class="timeline">
+        <div class="timeline-item" contenteditable="true">
+          <h3>Технический университет</h3>
+          <p class="timeline-date">2016 - 2020</p>
+          <p class="timeline-description">Специальность: Информационные системы</p>
+        </div>
+      </div>
+    </section>
+
+    <button class="download-btn" id="download-pdf" data-ripple>
+      <i class="fas fa-download"></i> Скачать PDF
+    </button>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script type="module" src="./js/main.js"></script>
+</body>
 </html>
