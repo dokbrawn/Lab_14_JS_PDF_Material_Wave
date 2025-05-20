@@ -1,60 +1,73 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Интерактивное резюме</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="./css/styles.css">
-  <script type="module" crossorigin src="/lab14/assets/index-DymeSY8c.js"></script>
-  <link rel="stylesheet" crossorigin href="/lab14/assets/index-DVS_j2na.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профессиональное резюме</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" crossorigin href="/lab14/assets/index-rkD0krDk.css">
 </head>
 <body>
-  <main class="resume-container">
-    <header class="header">
-      <div class="avatar" data-ripple></div>
-      <h1 class="name" contenteditable="true">Иван Иванов</h1>
-      <p class="position" contenteditable="true">Frontend разработчик</p>
-      <div class="contacts">
-        <div class="contact-item" data-ripple>
-          <i class="fas fa-phone"></i>
-          <span contenteditable="true">+7 (999) 123-45-67</span>
-        </div>
-        <div class="contact-item" data-ripple>
-          <i class="fas fa-envelope"></i>
-          <span contenteditable="true">example@mail.com</span>
-        </div>
-      </div>
-    </header>
+    <div class="resume-wrapper">
+        <header class="resume-header">
+            <div class="header-content">
+                <h1 contenteditable="true">Иван Иванов</h1>
+                <p class="position" contenteditable="true">Frontend разработчик</p>
+                <div class="contact-info">
+                    <div class="contact-item" data-ripple>
+                        <i class="fas fa-phone"></i>
+                        <span contenteditable="true">+7 (999) 123-45-67</span>
+                    </div>
+                    <div class="contact-item" data-ripple>
+                        <i class="fas fa-envelope"></i>
+                        <span contenteditable="true">example@mail.com</span>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-    <section class="section">
-      <h2 class="section-title"><i class="fas fa-briefcase"></i> Опыт работы</h2>
-      <div class="timeline">
-        <div class="timeline-item" contenteditable="true">
-          <h3>Ведущий разработчик</h3>
-          <p class="timeline-date">2020 - настоящее время</p>
-          <p class="timeline-description">Разработка SPA приложений на Vue.js</p>
-        </div>
-      </div>
-    </section>
+        <main class="resume-content">
+            <section class="resume-section">
+                <h2><i class="fas fa-briefcase"></i> Опыт работы</h2>
+                <div class="timeline">
+                    <div class="timeline-item" contenteditable="true">
+                        <h3>Frontend разработчик</h3>
+                        <p class="date">2020 - настоящее время</p>
+                        <p class="description">Разработка веб-приложений на React.js</p>
+                    </div>
+                </div>
+            </section>
 
-    <section class="section">
-      <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Образование</h2>
-      <div class="timeline">
-        <div class="timeline-item" contenteditable="true">
-          <h3>Технический университет</h3>
-          <p class="timeline-date">2016 - 2020</p>
-          <p class="timeline-description">Специальность: Информационные системы</p>
-        </div>
-      </div>
-    </section>
+            <section class="resume-section">
+                <h2><i class="fas fa-graduation-cap"></i> Образование</h2>
+                <div class="timeline">
+                    <div class="timeline-item" contenteditable="true">
+                        <h3>Технический университет</h3>
+                        <p class="date">2016 - 2020</p>
+                        <p class="description">Специальность: Информационные системы</p>
+                    </div>
+                </div>
+            </section>
 
-    <button class="download-btn" id="download-pdf" data-ripple>
-      <i class="fas fa-download"></i> Скачать PDF
-    </button>
-  </main>
+            <section class="resume-section">
+                <h2><i class="fas fa-code"></i> Навыки</h2>
+                <ul class="skills-list" contenteditable="true">
+                    <li>HTML5, CSS3, JavaScript</li>
+                    <li>React, Vue.js</li>
+                    <li>Git, Webpack</li>
+                </ul>
+            </section>
+        </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <footer class="resume-footer">
+            <button id="download-pdf" class="download-btn" data-ripple>
+                <i class="fas fa-file-pdf"></i> Скачать PDF
+            </button>
+        </footer>
+    </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
