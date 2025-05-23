@@ -1,45 +1,58 @@
-import { jsPDF } from "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/+esm";
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Интерактивное резюме</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <main class="resume-container">
+    <header class="header">
+      <div class="avatar" data-ripple></div>
+      <h1 class="name" contenteditable="true">Иван Иванов</h1>
+      <p class="position" contenteditable="true">Frontend разработчик</p>
+      <div class="contacts">
+        <div class="contact-item" data-ripple>
+          <i class="fas fa-phone"></i>
+          <span contenteditable="true">+7 (999) 123-45-67</span>
+        </div>
+        <div class="contact-item" data-ripple>
+          <i class="fas fa-envelope"></i>
+          <span contenteditable="true">example@mail.com</span>
+        </div>
+      </div>
+    </header>
 
-// Сохраняем изменения в localStorage
-document.querySelectorAll('[contenteditable]').forEach(el => {
-  const key = el.className || el.id;
-  el.innerHTML = localStorage.getItem(key) || el.innerHTML;
+    <section class="section">
+      <h2 class="section-title"><i class="fas fa-briefcase"></i> Опыт работы</h2>
+      <div class="timeline">
+        <div class="timeline-item" contenteditable="true">
+          <h3>Ведущий разработчик</h3>
+          <p class="timeline-date">2020 - настоящее время</p>
+          <p class="timeline-description">Разработка SPA приложений на Vue.js</p>
+        </div>
+      </div>
+    </section>
 
-  el.addEventListener('input', () => {
-    localStorage.setItem(key, el.innerHTML);
-  });
-});
+    <section class="section">
+      <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Образование</h2>
+      <div class="timeline">
+        <div class="timeline-item" contenteditable="true">
+          <h3>Технический университет</h3>
+          <p class="timeline-date">2016 - 2020</p>
+          <p class="timeline-description">Специальность: Информационные системы</p>
+        </div>
+      </div>
+    </section>
 
-// Скачивание PDF
-document.getElementById('download-pdf').addEventListener('click', () => {
-  const content = document.querySelector('.resume-container');
-  const pdf = new jsPDF();
+    <button class="download-btn" id="download-pdf" data-ripple>
+      <i class="fas fa-download"></i> Скачать PDF
+    </button>
+  </main>
 
-  pdf.html(content, {
-    callback: function (doc) {
-      doc.save("resume.pdf");
-    },
-    x: 10,
-    y: 10,
-    width: 180
-  });
-});
-
-// Ripple-эффект
-document.querySelectorAll('[data-ripple]').forEach(el => {
-  el.addEventListener('click', function (e) {
-    const circle = document.createElement('span');
-    const diameter = Math.max(el.clientWidth, el.clientHeight);
-    const radius = diameter / 2;
-
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${e.clientX - el.getBoundingClientRect().left - radius}px`;
-    circle.style.top = `${e.clientY - el.getBoundingClientRect().top - radius}px`;
-    circle.classList.add('ripple');
-
-    const ripple = el.getElementsByClassName('ripple')[0];
-    if (ripple) ripple.remove();
-
-    el.appendChild(circle);
-  });
-});
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
