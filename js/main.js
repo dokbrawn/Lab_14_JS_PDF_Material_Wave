@@ -3,8 +3,7 @@ import javascriptLogo from '../javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
 
-import { jsPDF } from "jspdf";
-
+// Сохраняем contenteditable в localStorage
 document.querySelectorAll('[contenteditable]').forEach(el => {
   el.addEventListener('input', () => {
     localStorage.setItem(el.className || el.id, el.innerHTML);
@@ -14,7 +13,9 @@ document.querySelectorAll('[contenteditable]').forEach(el => {
   if (saved) el.innerHTML = saved;
 });
 
+// Скачать PDF через jsPDF из window.jspdf
 document.getElementById('download-pdf').addEventListener('click', () => {
+  const { jsPDF } = window.jspdf;
   const pdf = new jsPDF();
   const content = document.querySelector('.resume-container');
 
@@ -28,6 +29,7 @@ document.getElementById('download-pdf').addEventListener('click', () => {
   });
 });
 
+// Ripple-эффект
 document.querySelectorAll('[data-ripple]').forEach(el => {
   el.addEventListener('click', function (e) {
     const circle = document.createElement('span');
@@ -46,4 +48,5 @@ document.querySelectorAll('[data-ripple]').forEach(el => {
   });
 });
 
-setupCounter(document.querySelector('#counter'))
+// Счётчик
+setupCounter(document.querySelector('#counter'));
